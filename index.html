@@ -29,7 +29,6 @@
                 white-space: -o-pre-wrap;   /* Opera 7 */    
                 word-wrap: break-word;      /* IE */
                 background-color: white;
-                background-image: url('images/pattern5.jpg');
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-position: center;
@@ -38,6 +37,26 @@
                 -webkit-background-clip: text;
             }
 
+            .background-rough {
+                background-image: url('images/pattern1.png');
+            }
+
+            .background-leaves {
+                background-image: url('images/pattern2.webp');
+            }
+
+            .background-party {
+                background-image: url('images/pattern3.avif');
+            }
+
+            .background-flowers {
+                background-image: url('images/pattern4.avif');
+            }
+
+            .background-strawberry {
+                background-image: url('images/pattern5.jpg');
+            }
+            
             .container {
                 width: 100%;
                 height: 100%;
@@ -69,25 +88,54 @@
                 text-align: left;
                 font-size: 1.5rem;
             }
+
+            .theme {
+                color: white;
+            }
         </style>
     </head>
     <body>
+        <div class="theme">
+            <input type="radio" id="rough" name="theme" value="background-rough">
+            <label for="rough">Rough</label><br>
+            <input type="radio" id="leaves" name="theme" value="background-leaves">
+            <label for="leaves">Leaves</label><br>
+            <input type="radio" id="party" name="theme" value="background-party">
+            <label for="party">Party</label><br>
+            <input type="radio" id="daisy" name="theme" value="background-flowers">
+            <label for="daisy">Daisy</label><br>
+            <input type="radio" id="strawberry" name="theme" value="background-strawberry">
+            <label for="strawberry">Strawberry</label>
+        </div>
         <div class="container">
             <div id="textarea"></div>
             <div id="hashtag">#defineyourdyslexia</div>
-            <input id="input"></
+            <input id="input">
         </div>
-
     </body>
     <script>
         const textarea = document.getElementById('textarea');
         const textinput = document.getElementById('input');
+        const radioButtons = document.querySelectorAll('input[name="theme"]');
+        
+        for (const radioButton of radioButtons) {
+            radioButton.addEventListener('click', () => {
+                let selectedTheme;
+                for (const radioButton of radioButtons) {
+                    if (radioButton.checked) {
+                        textarea.classList.add(radioButton.value);
+                    } else {
+                        textarea.classList.remove(radioButton.value);
+                    }
+                }
+
+            })
+        }
 
         input.addEventListener('change', (event) => {
             textarea.textContent = event.target.value;
             changefontsize();
         })
-
 
         input.addEventListener('keyup', (event) => {
             textarea.textContent = event.target.value;
