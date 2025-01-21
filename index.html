@@ -79,6 +79,16 @@
                 font-style: normal;
             }
 
+            #theme-input {
+                border-radius: 3px;
+                font-size: 3em;
+                background-color: black;
+                color: white;
+                font-family: "neue-kabel", sans-serif;
+                font-weight: 800;
+                font-style: normla;
+            }
+
             #hashtag {
                 color: #abc5ff;
                 width: 75vw;
@@ -89,45 +99,57 @@
             .theme {
                 color: white;
             }
+
+            .hint {
+                color: white;
+                font-size: 2em;
+            }
+
+            .horizontal-container {
+                display: flex;
+                justify-content: space-between;
+                width: 75%;
+            }
         </style>
     </head>
     <body>
-        <div class="theme">
-            <input type="radio" id="rough" name="theme" value="background-rough">
-            <label for="rough">Rough</label><br>
-            <input type="radio" id="leaves" name="theme" value="background-leaves">
-            <label for="leaves">Leaves</label><br>
-            <input type="radio" id="party" name="theme" value="background-party">
-            <label for="party">Party</label><br>
-            <input type="radio" id="daisy" name="theme" value="background-flowers">
-            <label for="daisy">Daisy</label><br>
-            <input type="radio" id="strawberry" name="theme" value="background-strawberry">
-            <label for="strawberry">Strawberry</label>
-        </div>
         <div class="container">
             <div id="textarea"></div>
             <div id="hashtag">#defineyourdyslexia</div>
-            <input id="input">
+            <div class="horizontal-container">
+                <input id="input">
+                <select id="theme-input" name="cars" id="cars">
+                    <option value=""></option>
+                    <option value="background-rough">Rough</option>
+                    <option value="background-leaves">Leaves</option>
+                    <option value="background-party">Party</option>
+                    <option value="background-flowers">Flowers</option>
+                    <option value="background-strawberry">Strawberry</option>
+                  </select>
+            </div>
+            
+            <p class="hint">Share your screenshot!</p>
         </div>
     </body>
     <script>
+        const renderThisHtml = `<em>I</em> like <span style="font-family: neue-kabel, sans-serif; font-size: 48px; color:white; text-shadow:0 0 2px blue;">cheese</span> 🧀`;
+
         const textarea = document.getElementById('textarea');
         const textinput = document.getElementById('input');
         const radioButtons = document.querySelectorAll('input[name="theme"]');
-        
-        for (const radioButton of radioButtons) {
-            radioButton.addEventListener('click', () => {
-                let selectedTheme;
-                for (const radioButton of radioButtons) {
-                    if (radioButton.checked) {
-                        textarea.classList.add(radioButton.value);
-                    } else {
-                        textarea.classList.remove(radioButton.value);
-                    }
-                }
+        const canvas = document.getElementById('myCanvas');
+        const themeInput = document.getElementById('theme-input');
+        let selectedTheme;
 
-            })
-        }
+        themeInput.addEventListener("change", (event) => {
+            console.log(event);
+            // remove previous theme
+            textarea.classList.remove(selectedTheme);
+            selectedTheme = event.target.value;
+            textarea.classList.add(selectedTheme);
+
+            console.log(textarea.classList);
+        });
 
         input.addEventListener('change', (event) => {
             textarea.textContent = event.target.value;
