@@ -14,7 +14,7 @@
             }
 
             #textarea {
-                height: 75%;
+                height: 60%;
                 width: 75vw;
                 font-size: 130px;
                 background-color: #262626;
@@ -37,26 +37,46 @@
                 -webkit-background-clip: text;
             }
 
-            .background-rough {
-                background-image: url('images/pattern1.png');
+            .background-blazing-flame {
+                background-image: url('images/blazing-flame.jpg');
             }
 
-            .background-leaves {
-                background-image: url('images/pattern2.webp');
+            .background-colourful-bubbles {
+                background-image: url('images/colourful-bubbles.jpg');
             }
 
-            .background-party {
-                background-image: url('images/pattern3.avif');
+            .background-doodle {
+                background-image: url('images/doodle.jpg');
             }
 
             .background-flowers {
-                background-image: url('images/pattern4.avif');
+                background-image: url('images/flowers.jpg');
             }
 
-            .background-strawberry {
-                background-image: url('images/pattern5.jpg');
+            .background-groovy-flower {
+                background-image: url('images/groovy-flower.jpg');
             }
-            
+
+            .background-mothers-day-heart {
+                background-image: url('images/mothers-day-heart.jpg');
+            }
+
+            .background-pool-water {
+                background-image: url('images/pool-water.png');
+            }
+
+            .background-psychadelic {
+                background-image: url('images/psychadelic.jpg');
+            }
+
+            .background-red-acrylic {
+                background-image: url('images/red-acrylic.jpg');
+            }
+
+            .background-watercolor {
+                background-image: url('images/watercolor.jpg');
+            }
+
             .container {
                 width: 100%;
                 height: 100%;
@@ -69,9 +89,8 @@
             }
 
             #input {
-                border-radius :3px;
+                border-radius: 3px;
                 font-size:3em;
-                width: 75vw;
                 background-color: black;
                 color: white;
                 font-family: "neue-kabel", sans-serif;
@@ -105,10 +124,17 @@
                 font-size: 2em;
             }
 
+            .center-contents {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+
             .horizontal-container {
                 display: flex;
                 justify-content: space-between;
-                width: 75%;
+                gap: 10px;
             }
         </style>
     </head>
@@ -116,19 +142,24 @@
         <div class="container">
             <div id="textarea"></div>
             <div id="hashtag">#defineyourdyslexia</div>
-            <div class="horizontal-container">
-                <input id="input">
-                <select id="theme-input" name="cars" id="cars">
-                    <option value=""></option>
-                    <option value="background-rough">Rough</option>
-                    <option value="background-leaves">Leaves</option>
-                    <option value="background-party">Party</option>
-                    <option value="background-flowers">Flowers</option>
-                    <option value="background-strawberry">Strawberry</option>
-                  </select>
+            <div class="center-contents">
+                <div class="horizontal-container">
+                    <input id="input">
+                    <select id="theme-input" name="cars" id="cars">
+                        <option value="">White</option>
+                        <option value="background-blazing-flame">Flame</option>
+                        <option value="background-colourful-bubbles">Bubbles</option>
+                        <option value="background-doodle">Doodles</option>
+                        <option value="background-flowers">Flowers</option>
+                        <option value="background-groovy-flower">Groovy flowers</option>
+                        <option value="background-mothers-day-heart">Hearts</option>
+                        <option value="background-psychadelic">Pyschadelic</option>
+                        <option value="background-red-acrylic">Acrylic</option>
+                        <option value="background-watercolor">Watercolour</option>
+                      </select>
+                </div>
             </div>
-            
-            <p class="hint">Share your screenshot!</p>
+            <p class="hint">Screenshot and share your experience!</p>
         </div>
     </body>
     <script>
